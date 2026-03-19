@@ -64,12 +64,12 @@
             </div>
                 
                 
-            </div>
         </div>
-
-        <!-- About Us Page -->
         
 
+        <!-- About Us Page -->
+         <div>
+            <div id="about-us-page" class="page-content">
                 <section class="mb-8">
                     <h3>Executive Summary</h3>
                     <p>
@@ -96,17 +96,11 @@
                         <strong>Our Mission:</strong> A world-class construction service that meets the needs of our valued customers. We embody teamwork, commitment, efficiency, and excellence in all our endeavors.
                     </p>
                 </section>
+         </div>
+        
 
-                
-
-               
-
-               
-            </div>
-        </div>
-
-        <!-- What we do Page -->
-        <div id="what-we-do-page" class="page-content">
+           <!-- What we do Page -->
+          <div id="what-we-do-page" class="page-content">
             <div class="services-background container">
                 <h2 class="text-white">What We Do: Our Core Business</h2>
             </div>
@@ -167,12 +161,11 @@
                     </ul>
               
             </div>
-        </div>
+        
+          <!-- 
 
-        <!-- 
-
-        <-- Roadsmart Page -->
-        <div id="roadsmart-page" class="page-content">
+          <-- Roadsmart Page -->
+     <div id="roadsmart-page" class="page-content">
             <div class="page-section container">
                 <h2>Roadsmart Solutions</h2>
                 <p class="mb-4">
@@ -396,79 +389,26 @@
             // Page navigation logic
             const pages = document.querySelectorAll('.page-content');
             window.showPage = (pageId) => {
+                // Remove the 'active' class from all pages
                 pages.forEach(page => {
                     page.classList.remove('active');
                 });
-                document.getElementById(pageId).classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on page change
-                // Close mobile menu if open
+
+                // Add the 'active' class to the selected page
+                const selectedPage = document.getElementById(pageId);
+                if (selectedPage) {
+                    selectedPage.classList.add('active');
+                }
+
+                // Scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Close the mobile menu if it's open
                 const mobileMenu = document.getElementById('mobile-nav-menu');
                 if (mobileMenu.style.display === 'block') {
                     toggleMobileMenu();
                 }
             };
-
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileNavMenu = document.getElementById('mobile-nav-menu');
-            window.toggleMobileMenu = () => {
-                const isOpen = mobileNavMenu.style.display === 'block';
-                mobileNavMenu.style.display = isOpen ? 'none' : 'block';
-                mobileMenuButton.querySelector('svg path').setAttribute('d', isOpen ? "M4 6h16M4 12h16m-7 6h7" : "M6 18L18 6M6 6l12 12");
-            };
-            mobileMenuButton.addEventListener('click', toggleMobileMenu);
-
-            // AI Project Idea Generator functionality
-            const projectIdeaInput = document.getElementById('project-idea-input');
-            const generateInsightsButton = document.getElementById('generate-insights-button');
-            const projectInsightsOutput = document.getElementById('project-insights-output');
-            const insightsText = document.getElementById('insights-text');
-            const insightsLoadingIndicator = document.getElementById('insights-loading-indicator');
-
-            generateInsightsButton.addEventListener('click', async () => {
-                const idea = projectIdeaInput.value.trim();
-                if (!idea) {
-                    insightsText.textContent = 'Please enter a project idea to get insights.';
-                    projectInsightsOutput.style.display = 'block';
-                    return;
-                }
-
-                insightsText.textContent = '';
-                projectInsightsOutput.style.display = 'none';
-                insightsLoadingIndicator.style.display = 'block';
-                generateInsightsButton.disabled = true;
-
-                const prompt = `Based on the capabilities of RICH REWARDS TRADING 276 (PTY) LTD (Electrical & Civil Engineering Contractors, also doing Mining, Logistics, Building, Construction, Security, Cleaning Services, Stationery, Educational materials and Pest Control), provide insights for the following project idea: "${idea}". Focus on potential scope, relevant services from the company's profile, and key considerations. Keep the response concise and professional.`;
-
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = ""; // Canvas will provide this in runtime
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        insightsText.textContent = result.candidates[0].content.parts[0].text;
-                    } else {
-                        insightsText.textContent = 'Sorry, I could not generate insights for this project idea.';
-                    }
-                } catch (error) {
-                    console.error("Error calling Gemini API for project insights:", error);
-                    insightsText.textContent = 'Error connecting to the AI. Please try again later.';
-                } finally {
-                    insightsLoadingIndicator.style.display = 'none';
-                    projectInsightsOutput.style.display = 'block';
-                    generateInsightsButton.disabled = false;
-                }
-            });
         });
     </script>
 </body>
