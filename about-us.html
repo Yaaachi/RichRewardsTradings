@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - RICH REWARDS TRADING 276</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container flex-container" style="background-image: url('images/back.jpg'); background-size: cover; background-position: center;">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Company Logo" class="logo" style="max-height: 100px; width: auto;">
+                <h1 class="company-name"> RICH REWARDS TRADING 276 </h1>
+            </div>
+            <button id="mobile-menu-button" class="menu-button" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="what-we-do.html" class="nav-link">What We Do</a>
+                <a href="roadsmart.html" class="nav-link">Roadsmart</a>
+                <a href="work-with-us.html" class="nav-link">Work With Us</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="contact-us.html" class="nav-link">Contact Us</a>
+            </nav>
+        </div>
+        <div id="mobile-nav-menu" class="mobile-nav-menu">
+            <nav>
+                <a href="index.html" class="nav-link" onclick="toggleMobileMenu();">Home</a>
+                <a href="about-us.html" class="nav-link" onclick="toggleMobileMenu();">About Us</a>
+                <a href="what-we-do.html" class="nav-link" onclick="toggleMobileMenu();">What We Do</a>
+                <a href="roadsmart.html" class="nav-link" onclick="toggleMobileMenu();">Roadsmart</a>
+                <a href="work-with-us.html" class="nav-link" onclick="toggleMobileMenu();">Work With Us</a>
+                <a href="privacy-policy.html" class="nav-link" onclick="toggleMobileMenu();">Privacy Policy</a>
+                <a href="contact-us.html" class="nav-link" onclick="toggleMobileMenu();">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-section container">
+            <h2>About Us</h2>
+            <section class="mb-8">
+                <h3>Executive Summary</h3>
+                <p>
+                    RICH REWARDS TRADING 276 (PTY) LTD envisions a future as a primary contracting and supplying enterprise across Civil, Electrical, Mechanical, Engineering, Mining, Logistics, Building, Construction, Security, Cleaning Services, Stationery, Educational materials and Pest Control. Our core mission is to empower black youth in South Africa, contributing to sustainable socio-economic growth and creating more sustainable jobs for communities. We are committed to developing and capacitating local government-funded community development projects and fostering vibrant community initiatives.
+                </p>
+            </section>
+            <section class="mb-8">
+                <h3>Vision and Mission Statement</h3>
+                <p class="mb-2">
+                    <strong>Our Vision:</strong> To be counted among the best contracting service providers, utilizing local authorities, municipalities, and building services, thereby maintaining and enhancing our leadership role in increasing our penetration and market share. This implies:
+                </p>
+                <ul>
+                    <li>Delighting stakeholders through uncompromised quality, on-time service delivery within budget, and high engineering standards.</li>
+                    <li>Conducting business ethically and professionally at all times.</li>
+                    <li>Attracting and retaining top technical management skills by creating a thriving work environment.</li>
+                    <li>Adopting a safe and environmentally friendly working culture.</li>
+                    <li>Building sustainable relationships with our stakeholders.</li>
+                    <li>Ensuring sustainable growth and profitability.</li>
+                    <li>Playing an active business and social role in assisting the government in meeting its millennium development goals.</li>
+                </ul>
+                <p class="mt-4">
+                    <strong>Our Mission:</strong> A world-class construction service that meets the needs of our valued customers. We embody teamwork, commitment, efficiency, and excellence in all our endeavors.
+                </p>
+            </section>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container grid-cols-1 grid-cols-md-3 gap-8">
+            <div>
+                <h3>Contact Us</h3>
+                <p><strong>Phone (Gauteng):</strong> 011 609 0567</p>
+                <p><strong>Cell:</strong> 064 062 9842 / 068 619 2739</p>
+                <p><strong>Email:</strong> Admin@richrewardstrading.co.za</p>
+            </div>
+            <div>
+                <h3>Our Locations</h3>
+                <p><strong>Gauteng:</strong> 26 Opstal Rd, Kempton Park, 1619</p>
+                <p><strong>Physical Address (Sebenza GP):</strong> 19B Ingwe Road, Sebenza GP</p>
+                <p><strong>KwaZulu Natal:</strong> A 440 Engwelezane, Empangeni</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="work-with-us.html">Work With Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> RICH REWARDS TRADING 276 (PTY) LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+        window.toggleMobileMenu = () => {
+            const menu = document.getElementById('mobile-nav-menu');
+            menu.classList.toggle('open');
+        };
+    </script>
+</body>
+</html>
